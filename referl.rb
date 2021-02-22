@@ -3,7 +3,7 @@ class Referl < Formula
       homepage "https://github.com/robertfiko/homebrew-referl"
       url "https://github.com/robertfiko/referl/archive/0.3.tar.gz"
       #license
-      sha256 "260aece8c3f72a7506a0cd8473fd007b6ce5a7b1ce5f1fa61f5b4bb339c2a45b"
+      sha256 "185d082716d0073ef582359ee6115ba1b02225caadfcfb6fa59b8b185e46d3ae"
     
       bottle :unneeded
     
