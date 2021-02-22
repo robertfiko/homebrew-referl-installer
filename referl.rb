@@ -1,8 +1,8 @@
 class Referl < Formula
       desc "A 'hello-world' kind of dummy installer."
       homepage "https://github.com/robertfiko/homebrew-referl"
-      url "https://github.com/robertfiko/referl/archive/0.3.tar.gz"
-      sha256 "260aece8c3f72a7506a0cd8473fd007b6ce5a7b1ce5f1fa61f5b4bb339c2a45b"
+      url "https://github.com/robertfiko/referl/archive/0.4.tar.gz"
+      sha256 "fd1b1957e9f3037fb79efa17dea83eae3b043ebd56767c37b95886a7201c849b"
       #license
     
       bottle :unneeded
