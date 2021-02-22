@@ -8,7 +8,7 @@ class Referl < Formula
       bottle :unneeded
     
       def install
-        system "g++", "main.cpp", "-o", "referl1"
+        system "g++", "main.cpp", "-o", "referl"
         bin.install "referl"
       end
     
