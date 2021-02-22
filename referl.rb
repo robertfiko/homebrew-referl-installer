@@ -1,4 +1,4 @@
-class Referk < Formula
+class Referl < Formula
       desc "A 'hello-world' kind of dummy installer."
       homepage "https://github.com/robertfiko/homebrew-referl"
       url "https://github.com/robertfiko/homebrew-referl/releases/download/0.1/referl-0.1.tar.gz"
