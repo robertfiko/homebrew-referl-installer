@@ -23,6 +23,7 @@ class Referl < Formula
         else
           system "Not found!"
           abort("Error!")
+        end
 
         bin.install "referl"
       end
@@ -32,4 +33,4 @@ class Referl < Formula
         #system "#{bin}/referl"
       end
     end
-    
+  
