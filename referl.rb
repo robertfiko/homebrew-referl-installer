@@ -8,6 +8,7 @@ class Referl < Formula
       bottle :unneeded
     
       def install
+        puts "Hello \n There \n I will \ Install"
         system "g++", "main.cpp -o referl"
         bin.install "referl"
       end
