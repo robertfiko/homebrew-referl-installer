@@ -1,5 +1,4 @@
 class Referl < Formula
-  require 'colorize'
 
       desc "A 'hello-world' kind of dummy installer."
       homepage "https://github.com/robertfiko/homebrew-referl"
