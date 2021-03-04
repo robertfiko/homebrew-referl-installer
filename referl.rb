@@ -33,4 +33,3 @@ class Referl < Formula
         #system "#{bin}/referl"
       end
     end
-  
