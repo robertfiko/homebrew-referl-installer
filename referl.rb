@@ -10,8 +10,9 @@ class Referl < Formula
       depends_on "yaws"
     
       def install
+        system "printf" "\033[0;33m Please read the following lines carfully and choose an option! \033[0m \n"
         puts "I am now red".red
-        system "g++", "main.cpp", "-o", "referl"
+        #system "g++", "main.cpp", "-o", "referl"
         bin.install "referl"
       end
     
