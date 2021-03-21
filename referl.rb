@@ -11,7 +11,7 @@ class Referl < Formula
       #depends_on "gcc" => "4.9"
       #depends_on "yaws" => "1.89"
       #depends_on "graphviz" => "2.0"
-      depends_on ":grep"
+      depends_on :cat
     
       def install
         #find yaws path
