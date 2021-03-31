@@ -16,9 +16,9 @@ class Referl < Formula
         #/usr/local/Cellar/yaws/2.0.8/lib/yaws-2.0.8/ebin
         yaws_version = (`yaws --version`).split(' ')[-1]
         yaws_path = "/usr/local/Cellar/yaws/" + yaws_version + "/lib/yaws-" + yaws_version + "/ebin"
-        system "Looking for YAWS path on: \n" + yaws_path
+        system "echo Looking for YAWS path on: \n" + yaws_path
         if (File.directory?(yaws_path))
-          system "Found!"
+          system "echo Found!"
         else
           system "Not found!"
           abort("Error!")
