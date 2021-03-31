@@ -1,17 +1,15 @@
 class Referl < Formula
-
-      desc "A 'hello-world' kind of dummy installer."
+      desc "Refactoring brought to Erlang"
       homepage "http://plc.inf.elte.hu/erlang/index.html"
       url "http://plc.inf.elte.hu/erlang/dl/refactorerl-0.9.20.08_v2.zip"
       sha256 "52f0778c42f7c48490f93b07a435cb3f8c3573810765b6255145e6972edc0cea"
       #version
       #license
     
-      depends_on :erlang
-      #depends_on "gcc" => "4.9"
-      #depends_on "yaws" => "1.89"
-      #depends_on "graphviz" => "2.0"
-      depends_on :cat
+      depends_on "erlang"
+      depends_on "gcc" => "4.9"
+      depends_on "yaws" => "1.89"
+      depends_on "graphviz" => "2.0"
     
       def install
         #find yaws path
