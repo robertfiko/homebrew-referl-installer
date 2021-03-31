@@ -17,18 +17,14 @@ class Referl < Formula
         yaws_version = (`yaws --version`).split(' ')[-1]
         yaws_path = "/usr/local/Cellar/yaws/" + yaws_version + "/lib/yaws-" + yaws_version + "/ebin"
         puts "Looking for YAWS path on: " + yaws_path
-        if (false && File.directory?(yaws_path))
-          puts "Found!"
-        else
-          puts "Not found!"
-          puts "\nACTION REQUIRED!\n"
-          yaws_path = gets
-          puts yaws_path
+        if (! File.directory?(yaws_path))
+          abort("Error! - yaws path not found")  
+        end
 
-          abort("Error!")
-        #end
+        system "bin/referl", "-build", "tool", "-yaws_path", yaws_path
 
-        bin.install "referl"
+
+        bin.install "bin/referl"
       end
     
       test do
