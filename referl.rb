@@ -21,10 +21,10 @@ class Referl < Formula
           abort("Error! - yaws path not found")  
         end
 
-        system "bin/referll", "-build", "tool", "-yaws_path", yaws_path
+        system "bin/referl", "-build", "tool", "-yaws_path", yaws_path
 
 
-        bin.install "bin/referl"
+        bin.install "/usr/local/Cellar/erlang/2/bin/referl"
       end
     
       test do
