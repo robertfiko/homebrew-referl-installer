@@ -24,7 +24,7 @@ class Referl < Formula
         system "bin/referl", "-build", "tool", "-yaws_path", yaws_path
 
 
-        bin.install "/usr/local/Cellar/referl/2/bin/referl" 
+        bin.install "bin/referl" 
       end
     
       test do
