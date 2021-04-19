@@ -25,7 +25,7 @@ class Referl < Formula
         puts install_path
         system "bin/referl", "-build", "tool", "-yaws_path", yaws_path
 
-
+        bin.install "lib"
         bin.install "bin/referl" 
       end
     
