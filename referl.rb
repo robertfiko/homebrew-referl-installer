@@ -21,12 +21,55 @@ class Referl < Formula
           abort("Error! - yaws path not found")  
         end
 
+
+        out_file = File.new("bin/referl-load.sh", "w")
+        #...
+        out_file.puts("#\!\/bin\/bash")
+        out_file.puts("`bin/referl -base /usr/local/Cellar/referl/2/bin/`")
+        #...
+        out_file.close
+
+        content = `cat bin/referl-load.sh`
+        puts content
+
+        puts ".-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-"
+        chre = `chmod +x bin/referl-load.sh` #ez lehet h nem kell
+        puts chre
+        #chre = `./referl-load`
+        #puts chre
+        puts ".-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-"
+        
+
+        
+
         install_path = `pwd`
         puts install_path
+        puts "======"
+        puts {HOMEBREW_PREFIX}
         system "bin/referl", "-build", "tool", "-yaws_path", yaws_path
 
-        bin.install "lib"
-        bin.install "bin/referl" 
+
+        
+
+
+        #install "lib"
+        #bin.install "lib"
+        #Egy 'bin' szülő nem probléma
+
+
+        #TODO MK PATH MANUAL man.mkpath
+
+        bin.install "bin"
+        bin.install "lib" #? lib.install
+        bin.install "refactorerl.boot"
+        bin.install "sys.config"
+        bin.write_exec_script (libexec/"referl-load.sh")
+        #bin.install "referl-load.sh"
+
+        #bin.install "bin/referl"   =====> ez nem tetszett neki
+        #{HOMEBREW_PREFIX}
+        #ln_s "/usr/local/Cellar/referl/2/bin/bin/referl", "/usr/bin/referl", :force => true
+        bin.install_symlink "bin/referl-load.sh"
       end
     
       test do
@@ -34,3 +77,5 @@ class Referl < Formula
         #system "#{bin}/referl"
       end
     end
+
+    #bin/referl -base /usr/local/Cellar/referl/2/bin
