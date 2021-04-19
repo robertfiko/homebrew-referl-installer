@@ -21,6 +21,7 @@ class Referl < Formula
           abort("Error! - yaws path not found")  
         end
 
+        system "pwd"
         system "bin/referl", "-build", "tool", "-yaws_path", yaws_path
 
 
