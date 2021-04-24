@@ -3,8 +3,10 @@ class Referl < Formula
       homepage "http://plc.inf.elte.hu/erlang/index.html"
       url "http://plc.inf.elte.hu/erlang/dl/refactorerl-0.9.20.08_v2.zip"
       sha256 "52f0778c42f7c48490f93b07a435cb3f8c3573810765b6255145e6972edc0cea"
-      #version
-      #license
+      #version #TODO !!!
+      #license #TODO !!!
+      #TODO MK PATH MANUAL man.mkpath
+      #TODO -with and -without tagek
     
       depends_on "erlang"
       depends_on "gcc" => "4.9"
@@ -12,9 +14,8 @@ class Referl < Formula
       depends_on "graphviz" => "2.0"
     
       def install
-        #find yaws path
-        #/usr/local/Cellar/yaws/2.0.8/lib/yaws-2.0.8/ebin
         yaws_version = (`yaws --version`).split(' ')[-1]
+        #? Ez a path így rendben van?
         yaws_path = "/usr/local/Cellar/yaws/" + yaws_version + "/lib/yaws-" + yaws_version + "/ebin"
         puts "Looking for YAWS path on: " + yaws_path
         if (! File.directory?(yaws_path))
@@ -22,54 +23,30 @@ class Referl < Formula
         end
 
 
-        out_file = File.new("bin/referl-load.sh", "w")
-        #...
-        out_file.puts("#\!\/bin\/bash")
-        out_file.puts("`bin/referl -base /usr/local/Cellar/referl/2/bin/`")
-        #...
-        out_file.close
-
-        content = `cat bin/referl-load.sh`
-        puts content
-
-        puts ".-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-"
-        chre = `chmod +x bin/referl-load.sh` #ez lehet h nem kell
-        puts chre
-        #chre = `./referl-load`
-        #puts chre
-        puts ".-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-"
-        
-
-        
-
         install_path = `pwd`
         puts install_path
-        puts "======"
-        puts {HOMEBREW_PREFIX}
-        system "bin/referl", "-build", "tool", "-yaws_path", yaws_path
+        puts "======\n"
+        puts #{HOMEBREW_PREFIX}
+        brew_preifx = `brew --prefix`
+        puts brew_preifxref
 
+        #TODO ezt egy outsourceként megvalósítani
+        out_file = File.new("bin/referls", "w")
+        out_file.puts("#\!\/bin\/bash") #{HOMEBREW_PREFIX} #! prefix - próbáld ezt
+        out_file.puts("`/usr/local/Cellar/referl/2/bin/bin/referl-boot -base /usr/local/Cellar/referl/2/bin/`")
+        out_file.close
 
+        content = `cat bin/referls`
+        puts content
         
+        system "bin/referl", "-build", "tool", "-yaws_path", yaws_path
+       
+        prefix.install "bin"
+        lib.install "lib" #? lib.install
+        prefix.install "refactorerl.boot"
+        prefix.install "sys.config"
 
-
-        #install "lib"
-        #bin.install "lib"
-        #Egy 'bin' szülő nem probléma
-
-
-        #TODO MK PATH MANUAL man.mkpath
-
-        bin.install "bin"
-        bin.install "lib" #? lib.install
-        bin.install "refactorerl.boot"
-        bin.install "sys.config"
-        bin.write_exec_script (libexec/"referl-load.sh")
-        #bin.install "referl-load.sh"
-
-        #bin.install "bin/referl"   =====> ez nem tetszett neki
-        #{HOMEBREW_PREFIX}
-        #ln_s "/usr/local/Cellar/referl/2/bin/bin/referl", "/usr/bin/referl", :force => true
-        bin.install_symlink "bin/referl-load.sh"
+        bin.install_symlink "bin/referls"
       end
     
       test do
@@ -78,4 +55,12 @@ class Referl < Formula
       end
     end
 
+
+
+
+    #! _____________ NOTES _____________ !#
     #bin/referl -base /usr/local/Cellar/referl/2/bin
+
+
+            #ln_s "/usr/local/Cellar/referl/2/bin/bin/referl", "/usr/bin/referl", :force => true
+        #inreplace "referl", "referl", "referl-boot"
