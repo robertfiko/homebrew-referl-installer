@@ -13,7 +13,7 @@ class Referl < Formula
   depends_on "graphviz" => "2.0"
 
   def install
-    runner_script = 'referls'
+    runner_script = 'referl'
     brew_prefix = '/usr/local/' #TODO Erre kell lennie jobbnak mert ez változhat
     puts brew_prefix
     yaws_version = (`yaws --version`).split(' ')[-1]
@@ -24,22 +24,28 @@ class Referl < Formula
     end
 
     #TODO Ezt kilehet szervezni resouceba
-    out_file = File.new("bin/"+runner_script, "w")
+    out_file = File.new(""+runner_script, "w")
     out_file.puts("#\!\/bin\/bash")
     out_file.puts("echo \"Cica\"")
     out_file.puts("`/usr/local/Cellar/referl/2/bin/bin/referl -base /usr/local/Cellar/referl/2/bin/`")
     out_file.puts("echo \"Mica\"")
     out_file.close
 
+    puts `pwd`
+
+    #! KÉRDÉS : Az fontos e h 'referl' legyen a neve az indító eszköznek?
+
+    #system "mv","bin/referl","bin/referli"
+    #system "sleep","50"
     system "bin/referl", "-build", "tool", "-yaws_path", yaws_path
 
     bin.install "bin"
     bin.install "lib" #? lib.install
     bin.install "refactorerl.boot"
     bin.install "sys.config"
-    bin.write_exec_script (libexec/""+runner_script)
+    prefix.write_exec_script (libexec/""+runner_script)
 
-    bin.install_symlink "bin/"+runner_script
+    prefix.install_symlink ""+runner_script
   end
 
   test do
