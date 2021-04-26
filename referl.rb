@@ -13,9 +13,9 @@ class Referl < Formula
   depends_on "graphviz" => "2.0"
 
   def install
-    runner_script = 'referl_start'
+    runner_script = 'referl_exec'
     brew_prefix = '/usr/local/' #TODO Erre kell lennie jobbnak mert ez változhat 
-    #brew_prefix = opt_prefix
+    #!brew_prefix = opt_prefix
     puts brew_prefix
     yaws_version = (`yaws --version`).split(' ')[-1]
     yaws_path = brew_prefix + "Cellar/yaws/" + yaws_version + "/lib/yaws-" + yaws_version + "/ebin"
@@ -24,56 +24,48 @@ class Referl < Formula
       ofail("Error! - yaws path not found")  
     end
 
-    #puts Dir["lib/*"]
-    #puts Dir["lib/*"].length
+    #?puts Dir["lib/*"]
+    #?puts Dir["lib/*"].length
 
 
+    #? Creating exec script
     #TODO Ezt kilehet szervezni resouceba
     out_file = File.new("bin/" + runner_script, "w")
     out_file.puts("#\!\/bin\/bash")
-    out_file.puts("echo \"Cica\"")
+    #?out_file.puts("echo \"Cica\"")
     out_file.puts("`/usr/local/Cellar/referl/2/bin/bin/referl -base /usr/local/Cellar/referl/2/bin/`")
-    out_file.puts("echo \"Mica\"")
+    #?out_file.puts("echo \"Mica\"")
     out_file.close
 
     puts `pwd`
 
-    #! KÉRDÉS : Az fontos e h 'referl' legyen a neve az indító eszköznek?
-
-
-
-    #prefix.install "bin/"+runner_script
-    #prefix.install_symlink "bin/"+runner_script
-
+    #! KÉRDÉS : Az fontos e h 'referl' legyen a neve az indító eszköznek? 'referl_boot'??
+    # Installing referl
     system "bin/referl", "-build", "tool", "-yaws_path", yaws_path
-    #system "sleep","60"
 
+    #! KÉRDÉS : referl_exec az jó? mint név
+    # Determining binaries' names, and excluding the 'referl' start and 'referl_exec' exec script
     bin_install = Dir["bin/*"]
     str_install = Array.new
     bin_install.each { |x| str_install.push(String.new(x)) }
     str_install.each { |x| puts x }
     str_install.delete("bin/referl")
-    str_install.delete("bin/referl_start")
+    str_install.delete("bin/"+runner_script)
 
     puts "================"
+    #?str_install.each { |x| puts x }
 
-    str_install.each { |x| puts x }
-
-
-    
-    
+    # Installing binaries
     bin.install str_install
-    bin.install "bin/referl" => "referl_boot"
+    bin.install "bin/referl" => "referl_boot" # Rename referl to avoid conflicts with symlink
     lib.install Dir["lib/*"] 
     prefix.install "refactorerl.boot"
     prefix.install "sys.config"
 
-    #bin.write_exec_script (libexec/"referl_start")
-    bin.install "bin/referl_start" => "referl"
-    #bin.install_symlink "bin/referl_start"
+    #?bin.write_exec_script (libexec/"referl_start")
+    bin.install "bin/"+runner_script => "referl" # Symlink will be pointed to this script
+    #?bin.install_symlink "bin/referl_start"
     
-
-
   end
 
   test do
