@@ -32,9 +32,7 @@ class Referl < Formula
     #TODO Ezt kilehet szervezni resouceba
     out_file = File.new("bin/" + runner_script, "w")
     out_file.puts("#\!\/bin\/bash")
-    #?out_file.puts("echo \"Cica\"")
-    out_file.puts("`/usr/local/Cellar/referl/2/bin/bin/referl -base /usr/local/Cellar/referl/2/bin/`")
-    #?out_file.puts("echo \"Mica\"")
+    out_file.puts("/usr/local/Cellar/referl/2/bin/referl_boot -base /usr/local/Cellar/referl/2/ $@")
     out_file.close
 
     puts `pwd`
@@ -71,6 +69,7 @@ class Referl < Formula
   test do
     #system "#{bin}/referl", "--version"
     #system "#{bin}/referl"
+    #elindul, args, -yaws, -db, -name, doksiban több
   end
 end
 
