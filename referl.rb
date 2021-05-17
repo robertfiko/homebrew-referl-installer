@@ -1,7 +1,7 @@
 class Referl < Formula
   desc "Refactoring brought to Erlang"
-  homepage "http://plc.inf.elte.hu/erlang/index.html"
-  url "http://plc.inf.elte.hu/erlang/dl/refactorerl-0.9.20.08_v2.zip"
+  homepage "https://plc.inf.elte.hu/erlang/index.html"
+  url "https://plc.inf.elte.hu/erlang/dl/refactorerl-0.9.20.08_v2.zip"
   sha256 "52f0778c42f7c48490f93b07a435cb3f8c3573810765b6255145e6972edc0cea"
   version "0.9.20.08"
   license "LGPL-3.0-only" # SPDX Representation for: GNU Lesser General Public License v3.0 only
@@ -52,9 +52,10 @@ class Referl < Formula
   end
 
   test do
-    ############ Test will come later ############
-    #system "#{bin}/referl", "--version"
-    #system "#{bin}/referl"
-    #Főbb esetek: elindul, args, -yaws, -db, -name, doksiban több
+    assert(false)
+    # ########### Test will come later ############
+    # system "#{bin}/referl", "--version"
+    # system "#{bin}/referl"
+    # Főbb esetek: elindul, args, -yaws, -db, -name, doksiban több
   end
 end
