@@ -32,7 +32,7 @@ class Referl < Formula
     # Creating exec script
     out_file = File.new("bin/" + runner_script, "w")
     out_file.puts("#\!\/bin\/bash")
-    out_file.puts(String.new(HOMEBREW_PREFIX) + "/Cellar/referl/"+version+"/bin/referl_boot -base " + String.new(HOMEBREW_PREFIX) + "/Cellar/referl/"+version+"/ $@")
+    out_file.puts("#{String.new(HOMEBREW_PREFIX)}/Cellar/referl/+#{version}/bin/referl_boot -base #{String.new(HOMEBREW_PREFIX)}/Cellar/referl/#{version}/ $@")
     out_file.close
 
     # Installing referl
