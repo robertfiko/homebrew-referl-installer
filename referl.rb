@@ -11,9 +11,9 @@ class Referl < Formula
   license "LGPL-3.0-only" # SPDX Representation for: GNU Lesser General Public License v3.0 only
 
   depends_on "erlang"
-  depends_on "gcc" => "4.9.1"
-  depends_on "graphviz" => "2.47.1"
-  depends_on "yaws" => "2.0.9"
+  depends_on "gcc"
+  depends_on "graphviz"
+  depends_on "yaws"
 
   # Creating exec script
   def create_exec_script
