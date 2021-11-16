@@ -14,6 +14,8 @@ class Referl < Formula
   depends_on "gcc" => "4.9.1"
   depends_on "graphviz" => "2.47.1"
   depends_on "yaws" => "2.0.9"
+  
+  runner_script = "referl_exec"
 
   # Creating exec script
   def create_exec_script
