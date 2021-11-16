@@ -5,9 +5,9 @@
 class Referl < Formula
   desc "Refactoring software for Erlang language by ELTE and Ericson"
   homepage "https://plc.inf.elte.hu/erlang/index.html"
-  url "https://plc.inf.elte.hu/erlang/dl/refactorerl-0.9.20.08_v2.zip"
-  version "0.9.20.08"
-  sha256 "52f0778c42f7c48490f93b07a435cb3f8c3573810765b6255145e6972edc0cea"
+  url "http://plc.inf.elte.hu/erlang/dl/fixes24.zip"
+  version "0.9.20.24"
+  sha256 "25789ae7cbff8749e8537c8984530905e9de58a2e75b499d51c42111cf822814"
   license "LGPL-3.0-only" # SPDX Representation for: GNU Lesser General Public License v3.0 only
 
   depends_on "erlang"
