@@ -14,12 +14,10 @@ class Referl < Formula
   depends_on "gcc" => "4.9.1"
   depends_on "graphviz" => "2.47.1"
   depends_on "yaws" => "2.0.9"
-  
-  runner_script = "referl_exec"
 
   # Creating exec script
   def create_exec_script
-    out_file = File.new("bin/#{runner_script}", "w")
+    out_file = File.new("bin/referl_exec", "w")
     out_file.puts("#\!\/bin\/bash")
     out_file.puts("#{String.new(HOMEBREW_PREFIX)}/Cellar/referl/+#{version}/bin/referl_boot -base #{String.new(HOMEBREW_PREFIX)}/Cellar/referl/#{version}/ $@")
     out_file.close
@@ -41,7 +39,7 @@ class Referl < Formula
     install_paths = []
     Dir["bin/*"].each { |x| install_paths.push(String.new(x)) }
     install_paths.delete("bin/referl")
-    install_paths.delete("bin/#{runner_script}")
+    install_paths.delete("bin/referl_exec")
     install_paths
   end
 
