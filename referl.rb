@@ -7,7 +7,7 @@ class Referl < Formula
   homepage "https://plc.inf.elte.hu/erlang/index.html"
   url "http://plc.inf.elte.hu/erlang/dl/fixes24.zip"
   version "0.9.20.24"
-  sha256 "25789ae7cbff8749e8537c8984530905e9de58a2e75b499d51c42111cf822814"
+  sha256 "e5b1fc153d7ead35d0a2971ef8ceb53d7721fb81f6179690f3c050d442ae16b2"
   license "LGPL-3.0-only" # SPDX Representation for: GNU Lesser General Public License v3.0 only
 
   depends_on "erlang"
