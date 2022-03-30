@@ -21,20 +21,17 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
       
-      - name: Run a one-line script
-        run: python ./.github/workflows/todo_List.py
-      - name: switching from HTTPS to SSH
-      run: git remote set-url origin ${{ secrets.ssh }}
+
       - name: check for changes
-      run: git status
-    - name: stage changed files
-      run: git add .
-    - name: commit changed files
-      run: git commit -m "Auto updating TODO.txt"
-    - name: fetch from master
-      run: git fetch origin master
-    - name: push code to master
-      run: git push origin HEAD:master
+        run: git status
+      - name: stage changed files
+        run: git add .
+      - name: commit changed files
+        run: git commit -m "Auto updating TODO.txt"
+      - name: fetch from master
+        run: git fetch origin master
+      - name: push code to master
+        run: git push origin HEAD:master
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
@@ -44,11 +41,5 @@ jobs:
 
 
 
-jobs:
-  build:
 
-    runs-on: macos-latest
-
-    steps:
-    - uses: actions/checkout@v1
     
