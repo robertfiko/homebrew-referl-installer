@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Auto release
 
 # Controls when the workflow will run
 on:
@@ -20,6 +20,8 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
+      - name: create file
+        run: echo "alma" >> alma.txt
       
 
       - name: check for changes
@@ -27,17 +29,12 @@ jobs:
       - name: stage changed files
         run: git add .
       - name: commit changed files
-        run: git commit -m "Auto updating TODO.txt"
+        run: git commit -m "Auto updating ALMA.txt"
       - name: fetch from master
         run: git fetch origin master
       - name: push code to master
         run: git push origin HEAD:master
 
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
 
 
 
