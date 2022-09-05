@@ -10,7 +10,7 @@ class ReferlAT2022 < Formula
   sha256 "118eec01ed36ce04f36e6bf5f960f31f164af32ca8c10f2845f290bde106f776"
   license "LGPL-3.0-only" # SPDX Representation for: GNU Lesser General Public License v3.0 only
 
-  depends_on "erlang@22"
+  depends_on "erlang@24"
   depends_on "gcc" => "4.9.1"
   depends_on "graphviz" => "2.47.1"
   depends_on "yaws" => "2.0.9"
