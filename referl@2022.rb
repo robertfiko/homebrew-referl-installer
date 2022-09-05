@@ -10,7 +10,7 @@ class ReferlAT2022 < Formula
   sha256 "118eec01ed36ce04f36e6bf5f960f31f164af32ca8c10f2845f290bde106f776"
   license "LGPL-3.0-only" # SPDX Representation for: GNU Lesser General Public License v3.0 only
 
-  depends_on "erlang"
+  depends_on "erlang@22"
   depends_on "gcc" => "4.9.1"
   depends_on "graphviz" => "2.47.1"
   depends_on "yaws" => "2.0.9"
@@ -19,7 +19,7 @@ class ReferlAT2022 < Formula
   def create_exec_script
     out_file = File.new("bin/referl_exec", "w")
     out_file.puts("#\!\/bin\/bash")
-    out_file.puts("#{String.new(HOMEBREW_PREFIX)}/Cellar/referl@2022/#{version}/bin/referl_boot -base #{String.new(HOMEBREW_PREFIX)}/Cellar/referl/#{version}/ $@")
+    out_file.puts("#{String.new(HOMEBREW_PREFIX)}/Cellar/referl@2022/#{version}/bin/referl_boot -base #{String.new(HOMEBREW_PREFIX)}/Cellar/referl@2022/#{version}/ $@")
     out_file.close
   end
 
