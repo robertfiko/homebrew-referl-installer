@@ -5,9 +5,9 @@
 class Thesis < Formula
   desc "Refactoring software for Erlang language by ELTE and Ericson"
   homepage "https://plc.inf.elte.hu/erlang/index.html"
-  url "https://fikorobert.web.elte.hu/downloads/refels.tar.gz"
+  url "https://fikorobert.web.elte.hu/downloads/refels.zip"
   version "0.9.20.24.1.1" # 0.9.20.24.1 extended
-  sha256 "00756d4ea3716d128f78ce5ee05fb8a5136d692948db0bf01958ce3c25caf4d7"
+  sha256 "118eec01ed36ce04f36e6bf5f960f31f164af32ca8c10f2845f290bde106f776"
   license "LGPL-3.0-only" # SPDX Representation for: GNU Lesser General Public License v3.0 only
 
   depends_on "erlang"
