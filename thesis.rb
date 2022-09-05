@@ -2,7 +2,7 @@
 # frozen_string_literal: false
 
 # Refactoring software for Erlang language by ELTE and Ericson
-class Referl < Formula
+class Thesis < Formula
   desc "Refactoring software for Erlang language by ELTE and Ericson"
   homepage "https://plc.inf.elte.hu/erlang/index.html"
   url "https://fikorobert.web.elte.hu/downloads/refels.tar.gz"
